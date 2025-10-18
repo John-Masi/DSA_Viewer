@@ -88,16 +88,3 @@ class HashMap{
 			elements--;
 		}
 };
-
-int main() {
-
-	HashMap<int, std::string> hm{16};
-
-	hm.insert(1,"fgdg");
-	hm.insert(1,"fgfdg");
-
-
-	std::string *s = hm.find(1);
-
-
-}
