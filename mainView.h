@@ -3,11 +3,16 @@
 #include <string>
 #include <string_view>
 
-
+// ADD EMPTY SPRITE SO WE DO NOT SEGFAULT 
 class MainView {
 	public:
 		std::string_view currentView{"hash_map"};
 		virtual void draw(sf::RenderWindow& w) {};
+		virtual void remove(){}
+		virtual ~MainView(){
+
+		}
+
 	protected:
 		std::vector<sf::Sprite> sprites;
 
@@ -25,7 +30,7 @@ class HashView: virtual public MainView {
 			}
 		}
 
-		void remove() {
+		virtual void remove() {
 			sprites.pop_back();
 		}
 
@@ -39,6 +44,10 @@ class HashView: virtual public MainView {
 			}
 		}
 		~HashView() {
-			// Destroy all sprites
+			sprites.erase();
 		} 
+};
+
+class LinkedListView: virtual public MainView {
+	public:
 };
