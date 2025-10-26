@@ -32,21 +32,6 @@ class HashMap{
 			return size;
 		}
 
-		//double load_factor = static_cast<double>(elements) / table.size();
-		// When our load factor is greater then 0.70 we create a new table that is double the size of the previous and compute hashes for the indexs again 
-		void rehash(size_t new_size) {
-			std::vector<std::list<std::pair<K, T>>> table_2(new_size);
-
-			for(auto& bucket: table){
-				for(auto& b: bucket) {
-					size_t index = std::hash<K>{}(b.first) % new_size;
-					table_2[index].push_back(b);
-				}
-			}
-
-			table.swap(table_2);
-		}
-
 		void insert(const K& key,const T& value){
 			size_t index = hash(key) % size;
 			// Looking through the std::list<std::pair<K, T>> which is our buckets 
