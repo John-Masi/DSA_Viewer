@@ -7,16 +7,17 @@
 class MainView {
 	public:
 		std::string_view currentView{"hash_map"};
+		virtual void draw(sf::RenderWindow& w) {};
 	protected:
 		std::vector<sf::Sprite> sprites;
 
 };
 
-class HashView: MainView {
+class HashView: virtual public MainView {
 	public:
 		HashMap<int,int> h_map;
 
-		void draw(sf::RenderWindow& w) { 
+		virtual void draw(sf::RenderWindow& w) { 
 			for(int i = 0; i < sprites.size(); i++) {
 				sprites[i].setPosition(i*150,100);
 				sprites[i].setScale(0.2f,0.2f);

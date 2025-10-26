@@ -10,6 +10,8 @@ int main() {
 	//h_map.insert(1,9);
 	HashView h_view{h_map};
 
+	MainView* m_view{ &h_view };
+
 	sf::RenderWindow window(sf::VideoMode(1280,1080), "Window");
 	sf::Event event;
 
@@ -27,7 +29,7 @@ int main() {
 		}
 
 		window.clear(sf::Color::Black);
-		h_view.draw(window);
+		m_view->draw(window);
 		window.display();
 
 	}
