@@ -1,4 +1,4 @@
-\#include "mainView.h"
+#include "mainView.h"
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <memory>
