@@ -1,4 +1,4 @@
-#include "hash_map.h"
+#include "mainView.h"
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
@@ -12,6 +12,11 @@ int main() {
 
 	sf::RenderWindow window(sf::VideoMode(1280,1080), "Window");
 	sf::Event event;
+
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left)){
+			h_view.remove();
+	}
+
 
 	while(window.isOpen()) {
 

@@ -86,31 +86,3 @@ class HashMap{
 			elements--;
 		}
 };
-
-// HashMap view for the gui
-class HashView{
-	public:
-		HashMap<int,int> h_map;
-		std::vector<sf::Sprite> sprites;
-
-		void draw(sf::RenderWindow& w) { 
-			for(int i = 0; i < sprites.size(); i++) {
-				sprites[i].setPosition(100*i,100 * i);
-				sprites[i].setScale(0.5f,0.5f);
-				w.draw(sprites[i]);
-			}
-		}
-
-		HashView() = default;
-		HashView(HashMap<int,int> hm) : h_map{hm} {
-			sf::Texture img;
-			img.loadFromFile("bucket.png");
-
-			for(int i = 0; i < static_cast<int>(h_map.getSize()); i++) {
-				sprites.emplace_back(img);
-			}
-		}
-		~HashView() {
-			// Destroy all sprites
-		} 
-};
