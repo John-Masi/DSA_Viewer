@@ -6,7 +6,11 @@
 
 
 int main() {
-	sf::RenderWindow window(sf::VideoMode(800,600), "Window");
+	HashMap<int, int> h_map(9); 
+	//h_map.insert(1,9);
+	HashView h_view{h_map};
+
+	sf::RenderWindow window(sf::VideoMode(1280,1080), "Window");
 	sf::Event event;
 
 	while(window.isOpen()) {
@@ -17,8 +21,9 @@ int main() {
 			}
 		}
 
-	}
+		window.clear(sf::Color::Black);
+		h_view.draw(window);
+		window.display();
 
-	window.clear(sf::Color::Black);
-	window.display();
+	}
 }
